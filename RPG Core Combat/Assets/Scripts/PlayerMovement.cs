@@ -14,11 +14,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         MoveToCursor();
+        UpdateAnim();
     }
     //Move player to mouse point method
     void MoveToCursor()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit; //get information about what raycast hit (positon)
@@ -32,5 +33,11 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-
+    void UpdateAnim()
+    {
+        Vector3 velocity = navMeshAgent.velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+        GetComponent<Animator>().SetFloat("moveForwardSpeed", speed);
+    }
 }

@@ -23,6 +23,7 @@ namespace RPG.Combat
             else
             {
                 GetComponent<Mover>().Cancel();
+                Attacking();
             }
         }
         private bool CompareDistance() //Compare distance: Player to Enemies
@@ -40,6 +41,15 @@ namespace RPG.Combat
         {
             target = null;
         }
+        void Attacking()
+        {
+            GetComponent<Animator>().SetTrigger("attack");
+        }
+        //Animation events
+        void Hit()
+        {
+        }
 
     }
+
 }

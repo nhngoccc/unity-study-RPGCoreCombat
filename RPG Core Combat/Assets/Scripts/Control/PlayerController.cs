@@ -12,8 +12,6 @@ namespace RPG.Control
         {
             if (CombatInteract()) return;
             if (MoveInteract()) return;
-            Debug.Log(message: "Nothing");
-
         }
         private bool CombatInteract() //Move player to enemies to combat
         {
@@ -21,7 +19,11 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 TargetCombat targetCombat = hit.transform.GetComponent<TargetCombat>();
-                if (targetCombat == null) continue; //If raycast not find an object, continue this loop
+                if (targetCombat == null)
+                {
+                    Debug.Log("NO ENEMY HERE");
+                    continue;
+                }  //If raycast not find an object, continue this loop
                 if (Input.GetMouseButtonDown(0))
                 {
                     GetComponent<PlayerCombat>().Attack(targetCombat);
@@ -39,7 +41,7 @@ namespace RPG.Control
             bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
             if (hasHit)
             {
-                if (Input.GetMouseButtonDown(0)) // Move to what mouse point to
+                if (Input.GetMouseButton(0)) // Move to what mouse point to and cancel combat status
                 {
                     GetComponent<Mover>().MoveToAction(hit.point);
                 }
@@ -53,7 +55,7 @@ namespace RPG.Control
         private static Ray GetMouseRay() //Get raycast point
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
-            Debug.DrawRay(GetMouseRay().origin, GetMouseRay().direction * 100, Color.red);
+            // Debug.DrawRay(GetMouseRay().origin, GetMouseRay().direction * 100, Color.red);
 
         }
     }

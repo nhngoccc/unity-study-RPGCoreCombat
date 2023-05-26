@@ -8,12 +8,15 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IActions
     {
         NavMeshAgent navMeshAgent;
+        Health health;
         void Start()
         {
+            health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
         }
         void Update()
         {
+            navMeshAgent.enabled = !health.IsDeath();
             UpdateAnim();
         }
         public void MoveToAction(Vector3 targetToMove) //Move affter interact with enemies

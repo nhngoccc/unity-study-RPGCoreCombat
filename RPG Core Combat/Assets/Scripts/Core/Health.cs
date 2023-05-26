@@ -1,5 +1,6 @@
 using UnityEngine;
-
+namespace RPG.Core
+{
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 100;
@@ -25,5 +26,7 @@ public class Health : MonoBehaviour
             GetComponent<Animator>().SetTrigger("die");
             isDeath = true;
         }
+        GetComponent<ActionScheduler>().CancelCurrentAction();
     }
+}
 }

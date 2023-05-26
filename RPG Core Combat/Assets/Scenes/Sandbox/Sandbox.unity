@@ -533,6 +533,7 @@ GameObject:
   - component: {fileID: 599335208}
   - component: {fileID: 599335212}
   - component: {fileID: 599335213}
+  - component: {fileID: 599335214}
   m_Layer: 0
   m_Name: EnemyOld
   m_TagString: Untagged
@@ -641,6 +642,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 319d0932125ba414c8a86c1c0c376a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  isDeath: 0
+--- !u!114 &599335214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599335207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f629a80cbb2744947846a1e7381f453c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -784,6 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1666068358, guid: 9988f6e921b72844283c02e84ae16ff9, type: 3}
+    - {fileID: 1785866903868950631, guid: 9988f6e921b72844283c02e84ae16ff9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9988f6e921b72844283c02e84ae16ff9, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -887,8 +903,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1432949802208347677, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
+      propertyPath: damage
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432949802208347677, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
       propertyPath: timeBetweenAttack
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843460441005321318, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
+      propertyPath: health
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2491217133021221458, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
       propertyPath: m_Name
@@ -942,7 +966,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5803631635543016803, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 561ac3448c55ff44894ab2420a35d29f, type: 3}
 --- !u!1001 &759028694
 PrefabInstance:
@@ -1911,8 +1936,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 1
-  timeBetweenAttack: 2
+  timeBetweenAttack: 1
   damage: 10
+--- !u!114 &1666068366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682867977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f629a80cbb2744947846a1e7381f453c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &1922017191
 PrefabInstance:
   m_ObjectHideFlags: 0

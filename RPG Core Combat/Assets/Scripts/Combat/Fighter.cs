@@ -11,23 +11,24 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = 1f;
         [SerializeField] float timeBetweenAttack = 2f;
         [SerializeField] int damage = 10;
-        float timeAfterLastAttack;
+        float timeAfterLastAttack = Mathf.Infinity;
         Health target;
         public bool CanAttack(GameObject targetCombat)
         {
             Health targetToAttack = targetCombat.GetComponent<Health>();
-            return targetToAttack != null  && !targetToAttack.IsDeath();
+            return targetToAttack != null && !targetToAttack.IsDeath();
 
         }
         private void Update()
         {
             timeAfterLastAttack += Time.deltaTime;
+            if (target.IsDeath()) return;
+
             if (target == null)
             {
                 return;
             }
 
-            if (target.IsDeath()) return;
 
             if (!CompareDistance())
             {

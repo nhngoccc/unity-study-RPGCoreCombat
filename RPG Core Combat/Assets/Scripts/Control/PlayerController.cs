@@ -24,6 +24,9 @@ namespace RPG.Control
                     Debug.Log("NO ENEMY HERE");
                     continue;
                 }  //If raycast not find an object, continue this loop
+                if (!GetComponent<PlayerCombat>().CanAttack(targetCombat))
+                { continue; }
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     GetComponent<PlayerCombat>().Attack(targetCombat);

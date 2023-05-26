@@ -4,6 +4,10 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health = 100;
     bool isDeath;
+    public bool IsDeath()
+    {
+        return isDeath;
+    }
     public void TakeDamager(int damage)
     {
         health = Mathf.Max(health - damage, 0);

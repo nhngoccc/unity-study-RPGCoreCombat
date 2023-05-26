@@ -13,7 +13,7 @@ namespace RPG.Combat
         [SerializeField] int damage = 10;
         float timeAfterLastAttack;
         Health target;
-        public bool CanAttack(TargetCombat targetCombat)
+        public bool CanAttack(GameObject targetCombat)
         {
             Health targetToAttack = targetCombat.GetComponent<Health>();
             return targetToAttack != null  && !targetToAttack.IsDeath();
@@ -44,7 +44,7 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
         }
 
-        public void Attack(TargetCombat targetCombat)
+        public void Attack(GameObject targetCombat)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = targetCombat.GetComponent<Health>();

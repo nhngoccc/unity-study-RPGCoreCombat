@@ -24,11 +24,11 @@ namespace RPG.Control
                     Debug.Log("NO ENEMY HERE");
                     continue;
                 }  //If raycast not find an object, continue this loop
-                if (!GetComponent<Fighter>().CanAttack(targetCombat)) continue; 
+                if (!GetComponent<Fighter>().CanAttack(targetCombat.gameObject)) continue; 
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GetComponent<Fighter>().Attack(targetCombat);
+                    GetComponent<Fighter>().Attack(targetCombat.gameObject);
                 }
                 return true;
             }

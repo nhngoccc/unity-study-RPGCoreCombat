@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2466354140415707914, guid: 9915e4c6af73f9a46a6529823c230498, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2466354140415708150, guid: 9915e4c6af73f9a46a6529823c230498, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -141,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponRange: 1
-  timeBetweenAttack: 3
+  timeBetweenAttack: 1
   damage: 10
 --- !u!114 &1666068359
 MonoBehaviour:

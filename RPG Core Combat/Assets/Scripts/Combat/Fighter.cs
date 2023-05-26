@@ -6,7 +6,7 @@ using RPG.Core;
 
 namespace RPG.Combat
 {
-    public class PlayerCombat : MonoBehaviour, IActions
+    public class Fighter : MonoBehaviour, IActions
     {
         [SerializeField] float weaponRange = 1f;
         [SerializeField] float timeBetweenAttack = 2f;

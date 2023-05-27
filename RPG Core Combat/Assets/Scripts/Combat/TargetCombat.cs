@@ -8,5 +8,5 @@ namespace RPG.Combat
     public class TargetCombat : MonoBehaviour
     {
     }
-    
+
 }

@@ -22,12 +22,11 @@ namespace RPG.Combat
         private void Update()
         {
             timeAfterLastAttack += Time.deltaTime;
-            if (target.IsDeath()) return;
-
             if (target == null)
             {
                 return;
             }
+            if (target.IsDeath()) return;
 
 
             if (!CompareDistance())

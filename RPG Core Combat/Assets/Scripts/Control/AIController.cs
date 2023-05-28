@@ -12,12 +12,14 @@ namespace RPG.Control
         [SerializeField] float waitingTimeToBackGuard = 5f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float wayPointTolerance;
+        [SerializeField] float timeBetweenWayPoints = 2f;
         Fighter fighter;
         GameObject player;
         Health health;
         Mover mover;
         Vector3 guardPos;
         float lastTimeSawPlayer = Mathf.Infinity;
+        float lastTimeMovedToWayPoint = Mathf.Infinity;
         int currenWaypointIndex = 0;
 
 
@@ -34,18 +36,27 @@ namespace RPG.Control
             if (health.IsDeath()) return;
             if (IsInDistanceToPlayer() && fighter.CanAttack(player))
             {
-                lastTimeSawPlayer = 0;
                 AttackBehaviour();
+                Debug.Log("ATTACKBEHAVIOUR WAS CALLED");
             }
             else if (lastTimeSawPlayer < waitingTimeToBackGuard)
             {
                 WaitingBehaviour();
+                Debug.Log("WAITINGBEHAVIOUR WAS CALLED");
+
             }
             else
             {
                 PatrolBehaviour();
+                Debug.Log("PATROLBEHAVIOUR WAS CALLED");
             }
+            TimerProcess();
+        }
+
+        private void TimerProcess() //Increase time with deltaTime
+        {
             lastTimeSawPlayer += Time.deltaTime;
+            lastTimeMovedToWayPoint += Time.deltaTime;
         }
 
         private void PatrolBehaviour()
@@ -55,6 +66,7 @@ namespace RPG.Control
             {
                 if (AtWayPoint())
                 {
+                    lastTimeMovedToWayPoint = 0;
                     CycleWayPoint();
                     Debug.Log("at a waypoint");
                 }
@@ -62,7 +74,10 @@ namespace RPG.Control
 
             }
             fighter.Cancel();
-            mover.MoveToAction(nextPos); //Move enemy to guardPos
+            if (lastTimeMovedToWayPoint > timeBetweenWayPoints)
+            {
+                mover.MoveToAction(nextPos); //Move enemy to guardPos
+            }
         }
 
         private Vector3 GetCurrentWayPoint() //Get near waypoint
@@ -89,6 +104,7 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
+            lastTimeSawPlayer = 0;
             fighter.Attack(player);
             lastTimeSawPlayer = 0f;
         }

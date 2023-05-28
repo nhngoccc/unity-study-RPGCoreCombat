@@ -147,6 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   waitingTimeToBackGuard: 5
+  patrolPath: {fileID: 0}
+  wayPointTolerance: 2.2
+  timeBetweenWayPoints: 2
 --- !u!4 &2491217133021221550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2466354140415708150, guid: 9915e4c6af73f9a46a6529823c230498, type: 3}

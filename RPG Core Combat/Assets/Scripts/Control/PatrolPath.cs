@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Control;
 
 namespace RPG.Control
 {
@@ -11,7 +12,7 @@ namespace RPG.Control
             for (int i = 0; i < transform.childCount; i++)
             {
                 int j = GetNextIndex(i);
-                Gizmos.DrawCube(GetWayPoint(i), new Vector3(1, 1, 1));
+                Gizmos.DrawSphere(GetWayPoint(i), 1);
                 Gizmos.DrawLine(GetWayPoint(i), GetWayPoint(j));
 
             }

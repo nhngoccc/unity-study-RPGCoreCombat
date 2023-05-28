@@ -10,12 +10,13 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         Health health;
-        private void Start() {
+        private void Start()
+        {
             health = GetComponent<Health>();
         }
         void Update()
         {
-            if(health.IsDeath()) return;
+            if (health.IsDeath()) return;
             if (CombatInteract()) return;
             if (MoveInteract()) return;
         }
@@ -27,10 +28,9 @@ namespace RPG.Control
                 TargetCombat targetCombat = hit.transform.GetComponent<TargetCombat>();
                 if (targetCombat == null)
                 {
-                    Debug.Log("NO ENEMY HERE");
                     continue;
                 }  //If raycast not find an object, continue this loop
-                if (!GetComponent<Fighter>().CanAttack(targetCombat.gameObject)) continue; 
+                if (!GetComponent<Fighter>().CanAttack(targetCombat.gameObject)) continue;
 
                 if (Input.GetMouseButtonDown(0))
                 {

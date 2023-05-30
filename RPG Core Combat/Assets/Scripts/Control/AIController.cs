@@ -13,6 +13,8 @@ namespace RPG.Control
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float wayPointTolerance;
         [SerializeField] float timeBetweenWayPoints = 2f;
+        [Range(0, 1)]
+        [SerializeField] float speedFraction = 0.5f;
         Fighter fighter;
         GameObject player;
         Health health;
@@ -76,7 +78,7 @@ namespace RPG.Control
             fighter.Cancel();
             if (lastTimeMovedToWayPoint > timeBetweenWayPoints)
             {
-                mover.MoveToAction(nextPos); //Move enemy to guardPos
+                mover.MoveToAction(nextPos, speedFraction); //Move enemy to guardPos
             }
         }
 

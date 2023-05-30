@@ -51,7 +51,7 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0)) // Move to what mouse point to and cancel combat status
                 {
-                    GetComponent<Mover>().MoveToAction(hit.point);
+                    GetComponent<Mover>().MoveToAction(hit.point,1f);
                 }
                 return true;
             }

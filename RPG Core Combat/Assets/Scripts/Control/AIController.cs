@@ -88,7 +88,7 @@ namespace RPG.Control
         private void CycleWayPoint()
         {
             currenWaypointIndex = patrolPath.GetNextIndex(currenWaypointIndex);
-            Debug.Log(currenWaypointIndex);
+            Debug.Log("current waypoint" + currenWaypointIndex);
         }
         private bool AtWayPoint()
         {

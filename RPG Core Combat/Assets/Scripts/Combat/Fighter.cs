@@ -53,6 +53,7 @@ namespace RPG.Combat
         {
             StopAnim();
             target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         private void StopAnim()

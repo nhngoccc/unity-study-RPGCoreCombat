@@ -8,11 +8,15 @@ namespace RPG.Saving
         private void Update() {
             if(Input.GetKey(KeyCode.S))
             {
-                GetComponent<SavingWrapper>().SaveFile(fileName);
+                DataManager.Instance.Load();
+                Debug.Log(DataManager.Instance.playerData.playerHealth);
+                // GetComponent<SavingWrapper>().SaveFile(fileName);
             }
             if(Input.GetKey(KeyCode.L))
             {
-                GetComponent<SavingWrapper>().LoadFile(fileName);
+                DataManager.Instance.playerData.playerHealth +=1;
+                DataManager.Instance.Save();
+                // GetComponent<SavingWrapper>().LoadFile(fileName);
             }
         }
 

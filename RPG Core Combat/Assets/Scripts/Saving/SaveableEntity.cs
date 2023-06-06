@@ -1,8 +1,10 @@
 using UnityEngine;
 namespace RPG.Saving
 {
+    // [ExecuteAlways] //alway running this scripts
     public class SaveableEntity : MonoBehaviour
     {
+        [SerializeField] string UUID = System.Guid.NewGuid().ToString();
         public string GetUUID()
         {
             return "aaaaa";
